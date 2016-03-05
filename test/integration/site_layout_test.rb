@@ -14,8 +14,8 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
     assert_select "a[href=?]", about_path
     assert_select "a[href=?]", contact_path
     assert_select "a[href=?]", login_path
-    # assert_select "a[href=?]", @current_user, count: 0 #profile
-    # assert_select "a[href=?]", edit_user_path(@current_user), count: 0 #settings
+    assert_select "a", {text: "Profile", count: 0}
+    assert_select "a", {text: "Settings", count: 0}
     assert_select "a[href=?]", users_path, count: 0
     assert_select "a[href=?]", logout_path, count: 0
   end
